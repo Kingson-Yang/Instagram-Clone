@@ -1,0 +1,108 @@
+.loginPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flexbox;
+    width: 350px;
+    height: 580px;
+    text-align: center;
+}
+
+.form {
+    border-color: lightgray;
+    border-style: solid;
+    padding: 10px;
+}
+
+input {
+    width: 80%;
+    padding: 10px 10px;
+    margin: 4px 0;
+    border-color: lightgrey;
+    border-style: solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.submit {
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    width: 80%;
+    background-color: #2F8DE0;
+    border: none;
+    border-radius: 10px;
+    transition: 0.25s;
+    color: white;
+    font-weight: bold;
+}
+
+img {
+    padding: 25px;
+}
+
+.hr-lines:before {
+    content:" ";
+    display: block;
+    height: 1px;
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    background: lightgray;
+}
+
+.hr-lines {
+    position: relative;
+
+}
+
+.hr-lines:after {
+    content:" ";
+    display: block;
+    height: 1px;
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    background: lightgray;
+}
+
+.fb {
+    border: none;
+    background-color: white;
+    color: blue;
+    cursor: pointer;
+    margin: 10px 50px;
+    font-size: 15px;
+}
+
+.fp {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.signUp {
+    border-style: solid;
+    width: 100%;
+    padding: 20px 0;
+    border-color: lightgray;
+}
+
+.signUp button {
+    border: none;
+    background-color: white;
+    color: blue;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.appstore {
+    padding: 0;
+}
