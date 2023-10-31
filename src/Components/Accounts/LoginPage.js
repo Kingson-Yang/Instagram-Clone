@@ -1,13 +1,12 @@
-import "./LoginPage.css"
+import "./Style.css"
 import logo from "./images/logo.png"
 import appStore from "./images/Appstore.svg"
 import gif from "./images/instagram.gif"
-import playBadge from "./images/playbadge.png"
-import { SocialIcon } from 'react-social-icons'
+import { Link } from 'react-router-dom'
 
 function LoginPage() {
     return (
-        <div className="loginPage">
+        <div className="layout">
             <img src={gif} alt="gif" width="425px"></img>
             <div className="container">
                 <div className="form">
@@ -19,7 +18,7 @@ function LoginPage() {
                     <button class="fb">Log in with Facebook</button>
                     <button class="fp">Forgot Password?</button>
                 </div>
-                <p className="signUp">Don't have an account? <button>Sign up</button></p>
+                <p className="signUp">Don't have an account? <Link to="/signup">Sign up</Link></p>
                 <p>Get the app</p>
                 <a href="https://apps.apple.com/us/app/instagram/id389801252?vt=lo"><img src={appStore} alt="appStore" className="appstore"></img></a>
             </div>
