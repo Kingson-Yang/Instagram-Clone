@@ -1,4 +1,4 @@
-import "./Style.css"
+import "./style.css"
 import logo from "./images/logo.png"
 import appStore from "./images/Appstore.svg"
 import gif from "./images/instagram.gif"
