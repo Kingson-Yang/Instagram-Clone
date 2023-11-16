@@ -1,6 +1,6 @@
 import Login from './components/auth/Login.js';
 import SignUp from './components/auth/SignUp.js';
-import Home from './components/homepage/Homepage.js';
+import Homepage from './components/homepage/Homepage.js';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Login}/>
           <Route path="/auth/signup" component={SignUp}/>
-          <Route path="/homepage" component={Home}/>
+          <Route exact path="/homepage" component={Homepage}/>
         </Switch>
     </Router>
   );
