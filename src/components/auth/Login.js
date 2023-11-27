@@ -36,8 +36,8 @@ function Login() {
                     <input type="password" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
                     <button className="submit" type="submit">Log in</button>
                     <p className="hr-lines" style={{fontSize: 15 + 'px'}}>OR</p>
-                    <button class="fb">Log in with Facebook</button>
-                    <button class="fp">Forgot Password?</button>
+                    <button className="fb">Log in with Facebook</button>
+                    <button className="fp">Forgot Password?</button>
                 </form>
                 <p className="signUp">Don't have an account? <Link to="/auth/signup">Sign up</Link></p>
                 <p>Get the app</p>
