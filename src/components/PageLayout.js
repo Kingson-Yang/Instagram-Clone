@@ -1,10 +1,12 @@
 import { Box } from "@mui/material";
 import Sidebar from "./homepage/Sidebar/Sidebar";
+import useAuthStore from "./auth/authStore";
 
 // instead of adding the Sidebar component to every page, we can add it only once to the PageLayout component and wrap the children with it. This way, we can have a sidebar on every page except the AuthPage.
 
 const PageLayout = ({ children }) => {
-	const canRenderSidebar = window.location.href.includes('/homepage')
+	const authUser = useAuthStore(state => state.user);
+	const canRenderSidebar = authUser
 
 	return (
 		<Box sx={{display: 'flex'}}>

@@ -2,48 +2,20 @@ import { Avatar, Box, Button, Container, Grid, Stack, Typography } from '@mui/ma
 import { BsBookmark, BsGrid3X3, BsSuitHeart } from 'react-icons/bs'
 import ProfilePost from './ProfilePost'
 import img from '../stock.png'
+import { Link, useParams } from 'react-router-dom'
+import Header from './Header'
+import useGetUserProfile from '../auth/useGetUserProfile'
 
 const Profile = () => {
+    const { username } = useParams()
+    const { userProfile } = useGetUserProfile(username);
+
+    if (!userProfile) return <UserNotFound />;
+
     return (
         <Container maxWidth={'lg'}>
             <Box sx={{ display: 'flex', paddingY: 7.5, paddingLeft: { xs: 4, md: 10 }, width: '100%' }}>
-                <Box sx={{ display: 'flex', gap: { xs: 4, sm: 10 }, direction: { xs: 'column', sm: 'row' } }}>
-                    <Avatar sx={{ width: { xs: 60, md: 125 }, height: { xs: 60, md: 125 }, justifySelf: 'center', alignSelf: 'flex-start' }}></Avatar>
-                    <Stack sx={{ alignItems: 'start', gap: 2, marginX: 'auto', flex: 1 }}>
-                        <Box sx={{ display: 'flex', gap: 4, justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
-                            <Typography sx={{ fontSize: { xs: 15, md: 20 } }}>
-                                Kingson
-                            </Typography>
-                            <Box sx={{ display: 'flex', gap: 4, alignItems: 'center', justifyContent: 'center' }}>
-                                <Button sx={{ background: 'black', color: 'white', '&:hover': { background: 'gray' } }}>
-                                    Edit Profile
-                                </Button>
-                            </Box>
-                        </Box>
-
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 2, md: 4 } }}>
-                            <Typography sx={{ fontSize: { xs: 15, md: 17.5 } }}>
-                                <Typography variant={'span'} sx={{ fontWeight: 'bold', marginRight: 1 }}>100</Typography>
-                                Posts
-                            </Typography>
-                            <Typography sx={{ fontSize: { xs: 15, md: 17.5 } }}>
-                                <Typography variant={'span'} sx={{ fontWeight: 'bold', marginRight: 1 }}>100</Typography>
-                                Followers
-                            </Typography>
-                            <Typography sx={{ fontSize: { xs: 15, md: 17.5 } }}>
-                                <Typography variant={'span'} sx={{ fontWeight: 'bold', marginRight: 1 }}>100</Typography>
-                                Following
-                            </Typography>
-                        </Box>
-
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                            <Typography sx={{ fontSize: 15, fontWeight: 'bold' }}>
-                                Yes
-                            </Typography>
-                        </Box>
-                        <Typography fontSize={15}>Insert Caption Here</Typography>
-                    </Stack>
-                </Box>
+                <Header />
             </Box>
             <Box sx={{ display: 'flex', marginLeft: { xs: 2.5, sm: 0 }, borderTop: '1px solid', borderColor: 'gray' }}>
                 <Box sx={{ display: 'flex', width: '100%', justifyContent: 'center', gap: 4, textTransform: 'uppercase', fontWeight: 'bold' }}>
@@ -86,3 +58,12 @@ const Profile = () => {
 }
 
 export default Profile
+
+const UserNotFound = () => {
+    return (
+        <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center', marginX: 'auto' }}>
+            <Typography fontSize={'30px'}>User Not Found</Typography>
+            <Link to={"/homepage"} color='blue' width={'max-content'} marginX={'auto'}>Go Home</Link>
+        </Box>
+    )
+}

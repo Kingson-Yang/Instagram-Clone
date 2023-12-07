@@ -2,8 +2,14 @@ import { Avatar, Box, Tooltip, Link} from "@mui/material";
 import { InstagramLogo, InstagramMobileLogo, NotificationsLogo, SearchLogo, CreatePostLogo } from "../../Constants"
 import { AiFillHome } from 'react-icons/ai'
 import { BiLogOut } from 'react-icons/bi'
+import useLogOut from "../../auth/useLogOut";
+import useAuthStore from "../../auth/authStore";
 
 const Sidebar = () => {
+
+  const authUser = useAuthStore((state) => state.user);
+
+  const { handleLogout, error } = useLogOut()
 
   const sidebarItems = [
     {
@@ -27,9 +33,9 @@ const Sidebar = () => {
       link: '/homepage'
     },
     {
-      icon: <Avatar sx={{ width: 25, height: 25 }}></Avatar>,
+      icon: <Avatar src={authUser?.profilePicURL} sx={{ width: 25, height: 25 }}></Avatar>,
       text: "Profile",
-      link: '/homepage/profile'
+      link: `/${authUser?.username}`
     }
   ]
   return (
@@ -50,6 +56,7 @@ const Sidebar = () => {
         <Box sx={{ paddingLeft: 2, display: { xs: 'none', md: 'block' }, cursor: 'pointer' }}>
           <Link href={'/homepage'}><InstagramLogo /></Link>
         </Box>
+
         <Box sx={{ gap: 5, cursor: 'pointer' }}>
           {sidebarItems.map((item, index,) => (
             <Tooltip
@@ -66,16 +73,17 @@ const Sidebar = () => {
             </Tooltip>
           ))}
         </Box>
+
         <Tooltip
           label="Log Out"
           sx={{ display: { xs: 'block', md: 'none' }}}
         >
-          <Link href={"/"} sx={{ textDecoration: 'none', position: "relative", top: '50%', display: 'flex', alignItems: 'center', gap: 4, borderRadius: 6, padding: 2, width: { xs: 25, md: '100%' }, '&:hover': { backgroundColor: 'lightgray' }, justifyContent: { xs: 'center', md: 'flex-start' } }}>
+          <Box onClick={handleLogout} sx={{ textDecoration: 'none', position: "relative", top: '50%', display: 'flex', alignItems: 'center', gap: 4, borderRadius: 6, padding: 2, width: { xs: 25, md: '100%' }, '&:hover': { backgroundColor: 'lightgray' }, justifyContent: { xs: 'center', md: 'flex-start' }, cursor: 'pointer'}}>
             {<BiLogOut color="black" size={25} />}
             <Box sx={{ display: { xs: 'none', md: 'block' }, color: 'black' }}>
               Log Out
             </Box>
-          </Link>
+          </Box>
         </Tooltip>
       </Box>
   )

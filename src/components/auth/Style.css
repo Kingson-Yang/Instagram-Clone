@@ -64,7 +64,7 @@ img {
 }
 
 .hr-lines:after {
-    content:" ";
+    content:"";
     display: block;
     height: 1px;
     width: 100px;

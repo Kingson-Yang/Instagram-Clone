@@ -1,8 +1,10 @@
 import { Box, Container } from "@mui/material";
 import Posts from "./Posts/Posts";
 import Suggested from "./SuggestedUser/Suggested";
+import useUserStore from "../auth/useUserStore";
 
 function Homepage() {
+
     return (
         <Container sx={{maxWidth: "xl"}}>
             <Box sx={{display: "flex", gap: 20}}>
