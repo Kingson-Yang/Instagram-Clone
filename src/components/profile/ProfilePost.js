@@ -62,8 +62,7 @@ const ProfilePost = ({ img }) => {
                         <Divider sx={{ marginY: 3 }} />
 
                         <Stack sx={{ width: '100%', alignItems: 'start', height: '350px', maxHeight: '350px', overflowY: 'auto' }}>
-                            <Comments username={"kingson"} comment={"nice bird dude"} />
-                            <Comments username={"kingson"} comment={"nice bird dude"} />
+                            <Comments username={"kingson"} comment={"nice bird"} />
                         </Stack>
 
                         <Divider sx={{ marginY: 4 }} />

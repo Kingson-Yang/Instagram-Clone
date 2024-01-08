@@ -43,10 +43,10 @@ const EditProfile = ({ isOpen, onClose}) => {
                             </FormControl>
 
                             <FormControl>
-                                <Input type="text" sx={{ fontSize: '15px' }} placeholder="Username" value={inputs.username || authUser.username} onChange={(e) => setInputs({ ...inputs, username: e.target.value })}/>
+                                <Input type="text" sx={{ fontSize: '15px' }} placeholder="Username" value={inputs.username } onChange={(e) => setInputs({ ...inputs, username: e.target.value })}/>
                             </FormControl>
                             <FormControl>
-                                <Input type="text" sx={{ fontSize: '15px' }} placeholder="Bio" value={inputs.bio || authUser.bio} onChange={(e) => setInputs({ ...inputs, bio: e.target.value })}/>
+                                <Input type="text" sx={{ fontSize: '15px' }} placeholder="Bio" value={inputs.bio } onChange={(e) => setInputs({...inputs, bio: e.target.value })}/>
                             </FormControl>
                             <Box display={'flex'} gap={6}>
                                 <Button variant="contained" color="error" onClick={onClose} sx={{ color: 'white', width: '100%' }}>Cancel</Button>
